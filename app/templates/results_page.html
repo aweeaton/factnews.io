@@ -1,0 +1,341 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/results.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container margins result-header">
+        <div class="col-12">
+            <h1>Results</h1>
+        </div>
+    </div>
+
+    <div class="card-deck justify-content-center">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">Summary</h2>
+                </div>
+                <div class="card-body">
+                    <a class="article-title" href={{ output['url'] }}>{{ output['title'] }}</a>
+                    <p class="card-text">{{ output['summary'] }}</p>
+                </div>
+                <div class="card-footer text-muted" style="text-align:center">
+                    Updated {{  today  }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">Credibility Score</h2>
+                </div>
+                <div class="card-body">
+                    <div class="cred-score">{{ output['credibility_score'] }} %
+                        {% if  output['credibility_score'] > 50 %}
+                        <span class="emoji"> 👍</span>
+                    </div>
+                    {% endif %}
+                    <div class="pred-text">Based on our predictive model</div>
+                    <div class="explain-model-button">
+                        <a type="button" class="btn btn-primary trimText"
+                            href="/model_page">
+                            How our model works
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card"> 
+                <div class="card-header sub-heading" style="text-align:center"> 
+                    <h2>Sentiment score</h2>
+                </div>
+                <div class="card-body padding:1rem">
+                    
+                    {% if  output['sentiment'] < 50 %}
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar"
+                            style="width: {{output['sentiment']}}%" aria-valuenow={{ output['sentiment']}}
+                            aria-valuemin={{100-output['sentiment']}} aria-valuemax="100">
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar"
+                            style="width: {{output['sentiment']}}%" aria-valuenow={{ output['sentiment']}}
+                            aria-valuemin={{100-output['sentiment']}} aria-valuemax="100">
+                        </div>
+                    </div>
+                    {% endif %}
+                
+                    <div class="pred-text">
+                            The article is {{ output['sentiment'] }} % negative. 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-10 mx-auto">
+            <h2 class="sub-heading cross-check-header" style="text-align:center">Our cross-checking process (SIFT)</h2>
+            <div class="white-bg disp-flex">
+                <div class="col-2 mx-auto">
+                    <div class="capital-sift">S</div>
+                    <div class="sift-text">Stop</div>
+                </div>
+                <div class="col-4 mx-auto">
+                    <div class="capital-sift">I</div>
+                    <div class="sift-text">Investigate the Source</div>
+                </div>
+                <div class="col-3 mx-auto">
+                    <div class="capital-sift">F</div>
+                    <div class="sift-text">Find the original source</div>
+                </div>
+                <div class="col-3 mx-auto">
+                    <div class="capital-sift">T</div>
+                    <div class="sift-text">Trace claims to original source</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container sift-explain-block">
+        <div class="col-10 mx-auto">
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h3 class="sub-heading-sift" style="text-align:center">
+                        Mike Caulfield's SIFT method provides a framework for sorting fact from misrepresentation
+                        and fiction. This part of the dashboard will walk you through our adaptation of his method
+                        for news articles. Read more about the SIFT here:
+                    </h3>
+                </div>
+                <a type="button" class="btn btn-outline-primary btn-md text-center mx-auto"
+                        href="https://hapgood.us/2019/06/19/sift-the-four-moves/" float-center>
+                                More about SIFT
+                </a>
+            </br>
+            </div>
+        </div>
+    </div>
+
+    </br></br>
+    {% block navbars %}
+    {% include 'navbar_s.html' %}
+    {% endblock %}
+    <div class="container sift-explain-block">
+        <div class="col-10 mx-auto">
+            <div class="card mx-auto">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">
+                        Before you begin to read an article or share it to your friends and family, first ask:
+                    </h2>
+                </div>
+                <div class="find-explain-text" style="padding: 1rem;">
+                    </br>
+                     1. Do I have enough information about the source or is it only a forwarded message?</br></br>
+                     2. Does the title already seem sensationalized? Will the truth be read in a biased lens?
+                    </br> </br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </br></br>
+
+    {% block navbari %}
+    {% include 'navbar_i.html' %}
+    {% endblock %}
+    <div class="container sift-explain-block">
+        <div class="col-10 mx-auto">
+            <div class="card text-center mx-auto">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">
+                        We identified the source as: <b>{{
+                            output["source"] }}</b>
+                    </h2>
+                </div>
+
+                <div class="card-deck justify-content-center">
+                    <div class="col-10 col-md-5 mx-auto">
+                    </br>
+                        <div class="card border-0">
+                            {% if about_src == "about" %}
+                            <div class="sift-explain-text" style="text-align:center">
+                                What this source's about page saying about itself
+                            </div>
+                            {% else %}
+                            <div class="sift-explain-text" style="text-align:center">
+                                What this source's meta description is saying about itself
+                            </div>
+                            {% endif %}
+                            <div class="grey-border">
+                                {{ output["source_about"] }}
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-5 mx-auto">
+                    </br>
+                        <div class="card border-0">
+                            <div class="sift-explain-text" style="text-align:center">
+                              {% if output["wiki_link"] != None %}
+                                  What <a href={{ output["wiki_link"] }}>Wikipedia</a> is saying about this source
+                              {% else %}
+                                  What Wikipedia is saying about this source
+                              {% endif %}
+                            </div>
+                            <div class="grey-border">
+                                {{ output["source_wiki"] }}
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </br></br>
+                <div class="card-body" style="padding: 0.5rem">
+                    <h4 style="text-align:center">
+                        See the news source's track record for truth in reporting on trusted fact checking websites:
+                    </h4>
+                </div>
+                <div class="card-deck justify-content-center find-check-buttons">
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0 " style="padding-top: 0.3rem">
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText"
+                                href="https://www.politifact.com/search/?q={{ output['source'] }}">
+                                Politifact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0" style="padding-top: 0.3rem">
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText"
+                                href="https://www.snopes.com/?s={{ output['source'] }}">
+                                Snopes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0" style="padding-top: 0.3rem">
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText"
+                                href="https://www.google.com/search?q=site%3Afactcheck.org+%22{{ output['source'] }}%22">
+                                FactCheck
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </br>
+            </div>
+        </div>
+    </div>
+
+    </br></br>
+    {% block navbarf %}
+    {% include 'navbar_f.html' %}
+    {% endblock %}
+    <div class="container sift-explain-block">
+        <div class="col-10 mx-auto">
+            <div class="card mx-auto">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">
+                        Find out what other sources say about this topic.
+                    </h2>
+                </div>
+                <div class="card-body" style="padding-bottom: 1rem">
+                    <h4 style="text-align:center">Below are the top 5 most relevant results from Google,
+                        based on your article's keywords:
+                    </h4>
+                    <div class="explain-model-button" style="padding:1rem">
+                        <div class="col-12 col-md-6">
+                            {% for link_domain in output["top_5_results"] %}
+                            <a type="button" class="btn btn-primary btn-lg btn-block trimText" href={{ link_domain[0] }} text-center>
+                                {{link_domain[1]}}
+                            </a>
+                            {% endfor %}
+
+                            <a type="button" class="btn btn-outline-primary btn-lg btn-block trimText"
+                                href={{ output["query_page"] }} float-center>
+                                See more results
+                            </a>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </br></br>
+
+    {% block navbart %}
+    {% include 'navbar_t.html' %}
+    {% endblock %}
+    <div class="container sift-explain-block">
+        <div class="col-10 mx-auto">
+            <div class="card mx-auto">
+                <div class="card-header">
+                    <h2 class="sub-heading" style="text-align:center">
+                        See research from fact check sites related to the topic
+                    </h2>
+                </div>
+            </br>
+                <div class="card-body" style="padding: 0.5rem">
+                    <h4 style="text-align:center">
+                        See research on the main topic of the article from trusted fact checking websites:
+                    </h4>
+                </div>
+                <div class="card-deck justify-content-center find-check-buttons">
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0" style="padding-top: 0.3rem">
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText" href="https://www.politifact.com/search/?q={{
+                                        output['search_q'] }}">
+                                Politifact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0" style="padding-top: 0.3rem" >
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText" href="https://www.snopes.com/?s={{ output['search_q']
+                                        }}">
+                                Snopes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 center-align">
+                        <div class="card border-0" style="padding-top: 0.3rem" >
+                            <a type="button" class="btn btn-primary btn-lg text-center trimText" href="https://www.google.com/search?q=site%3Afactcheck.org+%22{{
+                                        output['search_q_google'] }}%22">
+                                FactCheck
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </br></br>
+            </div>
+        </div>
+    </div>
+
+
+    {% include "footer.html" %}
+</body>
+
+{% endblock %}

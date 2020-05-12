@@ -1,0 +1,67 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+
+        <body>
+            <div class="login-form">
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    <h2 class="text-center">Sign Up</h2>
+                    <div class="form-group text-center">
+                        {{ form.username.label}} <br/>{{form.username()}}
+                    </div>
+                    <div class="form-group text-center">
+                        {{ form.email.label}} <br/>{{form.email()}}
+                    </div>
+                    <div class="form-group text-center">
+                        {{ form.password.label}} <br/>{{form.password()}}
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit(class_="btn btn-primary btn-block")}}
+                    </div>
+                </form>
+                <p class="text-center"><a href="login">Already have an account? Login</a></p>
+            </div>
+        </body>
+    </div>
+
+
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <span style="color: red;">{{ message }}</span>
+        {% endfor %}
+    </div>
+
+    </div>
+
+
+    <footer class="footer">
+        {% include "footer.html" %}
+    </footer>
+
+</body>
+
+{% endblock %}

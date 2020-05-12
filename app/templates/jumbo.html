@@ -1,0 +1,197 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="About us">
+    <meta name="author" content="ksyi">
+
+    <title>factnews</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/dist/css/bootstrap.min.css') }}">
+    <!-- <link href="/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/assets/css/ie10-viewport-bug-workaround.css') }}">
+    <!-- <link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/static/styles/jumbotron.css') }}">
+    <!-- <link href="/static/styles/jumbotron.css" rel="stylesheet"> -->
+
+  </head>
+
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <p style = "font-size:86px; text-align:center">
+          factnews
+        </p>
+        <p style = "font-size:24px; text-align:center"> This app allows users to improve their
+          media literacy by taking a critical eye towards what news items are forwarded to them
+          in a quick, informative dashboard. This “one-stop shop” will automate cross-checking
+          for quick verification and provide a more complex approach of machine learning as an
+          option, so they can understand why and how to verify digital information.</p>
+        <p style = "text-align:center"> <a class="btn btn-primary btn-lg" href="/" role="button">Try it now &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <p style = "font-size:54px; text-align:center">
+        Our models
+      </p>
+      <p style = "font-size:24px; text-align:center">
+        Come learn about the cutting-edge models we used to calculate the credibility of a source
+        and its article. We used an ensemble of two models to analyze different parts of the article in order to give you a comprehensive
+        background check on an article, so you don't have to:
+      </p>
+      <p style = "text-align:center">
+        <a class="btn btn-outline-primary" href="/model_page" role="button">Our model &raquo;</a>
+        <br />
+        <br />
+      </p>
+    </div>
+
+    <div class="container">
+      <p style = "font-size:54px; text-align:center">
+        Our team
+     </p>
+     <p style = "font-size:24px; text-align:center">
+      We are a dedicated team of graduate students from the University of San Francisco, aiming to improve the digital
+      literacy of America. Feel free to reach out to us through the links below:
+    </p>
+      <!-- Example row of columns -->
+
+      <div class="card-deck justify-content-center">
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='ka.jpeg') }} height="175" class="rounded-circle" alt="Kamron Afshar">
+            <h3 style="text-center">Kamron <br />Afshar</h3>
+            <p>
+              <a class="btn btn-success btn-sm" style="align-items=center" href="https://github.com/kjafshar" role="button">Github   &raquo;</a><br>
+              <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/kamron-afshar-b8108490/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='sb.jpeg') }} height="175" class="rounded-circle" alt="Shreejaya Bharathan">
+            <h3>Shreejaya <br />Bharathan</h3>
+            <p>
+              <a class="btn btn-success btn-sm" href="https://github.com/ShreejayaB" role="button">Github   &raquo;</a><br>
+              <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/shreejaya-bharathan/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='ae.jpeg') }} height="175" class="rounded-circle" alt="Andrew Eaton">
+            <h3>Andrew<br> Eaton</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/aweeaton" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/andrew-w-eaton/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='si.jpeg') }} height="175" class="rounded-circle" alt="Samarth Inani">
+            <h3>Samarth <br />Inani</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/samarthinani94" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/samarth-inani/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='sk.jpeg') }} height="175" class="rounded-circle" alt="Sunny Kwong">
+            <h3>Sunny<br> Kwong</h3>
+            <p>
+              <a class="btn btn-success btn-sm" href="https://github.com/kwongsunny7" role="button">Github   &raquo;</a><br>
+              <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/sunny-kwong/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-deck justify-content-center">
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='as.jpeg') }} height="175" class="rounded-circle" alt="Akansha Shrivastava">
+            <h3>Akansha <br />Shrivastava</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/akansha9j" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/shrivastavakansha/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='is.jpeg') }} height="175" class="rounded-circle" alt="Ivette Sulca">
+            <h3>Ivette <br />Sulca</h3>
+            <p>
+              <a class="btn btn-success btn-sm" href="https://github.com/ivesulca" role="button">Github   &raquo;</a><br>
+              <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/ivette-sulca/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='ans.jpeg') }} height="175" class="rounded-circle" alt="Aakanksha NS">
+            <h3>Aakanksha <br />NS</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/aakanksha-ns" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/aakanksha-ns/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='bw.jpeg') }} height="175" class="rounded-circle" alt="Bing Wang">
+            <h3>Bing <br />Wang</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/bingwang32" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/bingwang32/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2.7">
+          <div class="card border-0 text-center">
+            <img src={{ url_for('static',filename='ky.jpeg') }} height="175" class="rounded-circle" alt="Kathy Yi">
+            <h3>Kathy<br> Yi</h3>
+            <p>
+                <a class="btn btn-success btn-sm" href="https://github.com/ksyii" role="button">Github   &raquo;</a><br>
+                <a class="btn btn-primary btn-sm" href="https://www.linkedin.com/in/kathleen-yi/" role="button">LinkedIn &raquo;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!-- /container -->
+
+    {% include "footer.html" %}
+
+
+  </body>
+  {% endblock %}

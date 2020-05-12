@@ -1,0 +1,36 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/footer.css') }}">
+</head>
+
+<div class="container padding-top: 2rem">
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+        <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="/">Home</a>
+            </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="{{ url_for('register') }}">Register</a>
+            </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">Login</a>
+                {% else %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+                {% endif %}
+            </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+                <a href="about">About</a>
+            </h6>
+        </div>
+    </div>
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+</div>
+<div class="footer-copyright text-center py-3">© 2020
+    factnews.io
+</div>

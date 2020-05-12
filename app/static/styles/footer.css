@@ -1,0 +1,23 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+@media (min-height: 801px) {
+    .footer{
+        position: absolute;
+    }
+}
+
+@media (max-height: 800px){
+    .footer{
+        position: static;
+    }
+}
+
+.main-footer {
+  margin-top: auto;
+} 

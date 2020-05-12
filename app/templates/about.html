@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/about.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h2>FactNews</h2>
+    This app allows users to improve their media literacy by taking a critical eye
+    towards what news items are forwarded to them in a quick, informative dashboard.
+    This “one-stop shop” will automate cross-checking for quick verification and
+    provide a more complex approach of machine learning as an option, so they can
+    understand why and how to verify digital information.
+
+    <h3>Team</h3>
+    <ul>
+        <li><a href="https://github.com/kjafshar">Kamron Afshar</a></li>
+        <li><a href="https://github.com/ShreejayaB">Shreejaya Bharathan</a></li>
+        <li><a href="https://github.com/aweeaton">Andrew Eaton</a></li>
+        <li><a href="https://github.com/samarthinani94">Samarth Inani</a></li>
+        <li><a href="https://github.com/kwongsunny7">Sunny Kwong</a></li>
+        <li><a href="https://github.com/akansha9j">Akansha Shrivastava</a></li>
+        <li><a href="https://github.com/ivesulca">Ivette Sulca</a></li>
+        <li><a href="https://github.com/aakanksha-ns">Aakanksha Nallabothula Surya</a>
+        </li>
+        <li><a href="https://github.com/bingwang32">Bing Wang</a></li>
+        <li><a href="https://github.com/ksyii">Kathy Yi</a></li>
+    </ul>
+
+    <footer class="footer">
+        {% include "footer.html" %}
+    </footer>
+
+</body>
+{% endblock %}

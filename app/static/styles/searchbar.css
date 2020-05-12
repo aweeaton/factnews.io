@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 8rem; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+.header {
+  text-align: center;
+  padding-bottom:50px;
+}
+
+.margins {
+  padding-top: 200px;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 1px solid rgb(93, 117, 117);
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 100px;
+  height: 40px;
+  border: 1px solid rgb(60, 155, 161);
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}

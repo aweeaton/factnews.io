@@ -1,0 +1,47 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+Models
+{% endblock %}
+
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/model_page.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img style="width: 100%; height: 100%; padding-top: 80px;"
+                    src="{{url_for('static',filename='logistic.png') }}"></img>
+            </div>
+        </div>
+</body>
+{% endblock %}
+
+{% block cardcontent %}
+<div class="card-img-overlay">
+    <h3 class="card-title text-blue">About our model</h3>
+    <p class="card-text text-black">
+        This model introduces tools and techniques for building data science web services and applications. </br>
+        Students work throughout the course to build stand-alone cloud-based applications that store data and serve
+        inferences derived from machine learning models.</br>
+
+    </p>
+</div>
+{% endblock %}

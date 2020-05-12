@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Documentation for the Code &#8212; factnews 0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Scripts" href="scripts.html" />
+    <link rel="prev" title="My Code Tutorial" href="tutorial.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-for-the-code">
+<h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-app.classes">
+<span id="classes"></span><h2>Classes<a class="headerlink" href="#module-app.classes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="app.classes.LogInForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.classes.</code><code class="sig-name descname">LogInForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.classes.LogInForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class is for log in forms</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.classes.RegistrationForm">
+<em class="property">class </em><code class="sig-prename descclassname">app.classes.</code><code class="sig-name descname">RegistrationForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app.classes.RegistrationForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is for user registratiom forms</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.classes.User">
+<em class="property">class </em><code class="sig-prename descclassname">app.classes.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">email</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.classes.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class captures users on our page</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.classes.UserBL">
+<em class="property">class </em><code class="sig-prename descclassname">app.classes.</code><code class="sig-name descname">UserBL</code><a class="headerlink" href="#app.classes.UserBL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class has the business logic layer for Users credentials</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.sift">
+<span id="sift"></span><h2>SIFT<a class="headerlink" href="#module-app.sift" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="app.sift.Error">
+<em class="property">exception </em><code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">Error</code><a class="headerlink" href="#app.sift.Error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for other exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="app.sift.NotNewsSiteError">
+<em class="property">exception </em><code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">NotNewsSiteError</code><a class="headerlink" href="#app.sift.NotNewsSiteError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when website is not a major news website</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.sift.find_better_coverage">
+<code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">find_better_coverage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.sift.find_better_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns top 5 Google search results for article topic/claim
+excluding search results from original source’s domain and
+untrusted sources</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.sift.google_query">
+<code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">google_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">header</span><span class="o">=</span><span class="default_value">{'User-agent': 'your bot 0'}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.sift.google_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls all links from first page of Google query</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.sift.investigate_source">
+<code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">investigate_source</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.sift.investigate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code that investigates source from a article URL website.
+Returns summary about news source (domain) from Wikipedia
+and the news source’s own about page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.sift.retrieve_article_details">
+<code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">retrieve_article_details</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.sift.retrieve_article_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns title, summary, and text, given a URL to a news article</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.sift.reveal_source">
+<code class="sig-prename descclassname">app.sift.</code><code class="sig-name descname">reveal_source</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.sift.reveal_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts domain names from given URL</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.credibility_model">
+<span id="credibility-model"></span><h2>Credibility Model<a class="headerlink" href="#module-app.credibility_model" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="app.credibility_model.domain_model">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">domain_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">title</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.domain_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicting  how real an article is based on the
+top 10 domains obtained by google searching the title</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.encode_link">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">encode_link</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">link</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.encode_link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes domain names based on vocab</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.google_query">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">google_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">header</span><span class="o">=</span><span class="default_value">{'User-agent': 'your bot 0'}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.google_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries article title on google and returns domain of top 10 results</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.pos">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">pos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>POS tagging</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.predict_count">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">predict_count</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.predict_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict based on count vec model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.predict_credibility">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">predict_credibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.predict_credibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the credibility score of given article,
+weighted average of countvec model and tfidf model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.predict_tfidf">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">predict_tfidf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.predict_tfidf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict based on tfidf vec model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.preprocess">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">preprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_total</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preprocessing article text : avergae length of sentence,
+frequency of tags, POS tagging</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.process_data_count">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">process_data_count</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.process_data_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process data for count_vec model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.process_data_tfidf">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">process_data_tfidf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.process_data_tfidf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process data for tfidf model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.sentiment">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">sentiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.sentiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns negative sentiment score and warns user of highly negative text
+:param text: text from article
+:return: negative sentiment score</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.credibility_model.text_features_model">
+<code class="sig-prename descclassname">app.credibility_model.</code><code class="sig-name descname">text_features_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.credibility_model.text_features_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicting how real an article is based on psycolinguistic, lexical and
+syntactic features of the article text</p>
+<p>Input: Article Text
+Output: Percentage of how real the article is</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.routes">
+<span id="routes"></span><h2>Routes<a class="headerlink" href="#module-app.routes" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="app.routes.about">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">about</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.about" title="Permalink to this definition">¶</a></dt>
+<dd><p>About Page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.login">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Login page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.logout">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logout page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.model_page">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">model_page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.model_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model explanation page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.register">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registration Page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.search">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.routes.search_post">
+<code class="sig-prename descclassname">app.routes.</code><code class="sig-name descname">search_post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.routes.search_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Results page</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.user_definition">
+<span id="user-definitions"></span><h2>User Definitions<a class="headerlink" href="#module-app.user_definition" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-test_unit">
+<span id="unit-tests"></span><h2>Unit Tests<a class="headerlink" href="#module-test_unit" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="test_unit.test_EmailFromDB">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_EmailFromDB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_EmailFromDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the User class atributes from the database</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_UserFromDB">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_UserFromDB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_UserFromDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the User class atributes from the database</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_existing_user">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_existing_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_existing_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assuming that the usertest has previously been registered</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_find_better_coverage">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_find_better_coverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_find_better_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests top 5 results and query page from find better coverage function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_investigate_source">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_investigate_source</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_investigate_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the wikipedia summary and self summary from
+investigate source function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_register">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Testing the registration for new users (base flow)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="test_unit.test_sift_retrieve_article_details">
+<code class="sig-prename descclassname">test_unit.</code><code class="sig-name descname">test_sift_retrieve_article_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_unit.test_sift_retrieve_article_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an URL we check the title, summary and encoded txt</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.__init__">
+<span id="init"></span><h2>Init<a class="headerlink" href="#module-app.__init__" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Overview of Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Team Members and Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">FactNews API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">My Code Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation for the Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.sift">SIFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.credibility_model">Credibility Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.routes">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.user_definition">User Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-test_unit">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-app.__init__">Init</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripts</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorial.html" title="previous chapter">My Code Tutorial</a></li>
+      <li>Next: <a href="scripts.html" title="next chapter">Scripts</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Group 5: Digital Media Literacy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

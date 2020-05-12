@@ -1,0 +1,55 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+{% include "ga.html" %}
+{% endblock %}
+
+{% block title %}
+factnews
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/searchbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+    <div class="container margins ">
+        <div class="header col-xs-12">
+            <h1>factnews</h1>
+        </div>
+        <form method="POST">
+            <div class="search col-xs-12 ">
+                <input name="url" type="text" class="searchTerm" placeholder="Enter a URL here">
+                <button onclick="gtag('event', 'onclick', {'event_category': 'button_click',
+                                                              'event_label': 'submit_search',
+                                                            'value': 100});"
+                        onmouseover="gtag('event', 'onmouseover', {'event_category': 'button_mouseover',
+                                                                  'event_label': 'searchbar',
+                                                                  'value': 50});" type="submit" class="searchButton">
+                    <i class="fa fa-search">Search</i>
+                </button>
+            </div>
+        </form>
+        <div class="container">
+            {% for message in get_flashed_messages() %}
+            <span style="color: red;">{{ message }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+<footer class="footer">
+    {% include "footer.html" %}
+</footer>
+{% endblock %}

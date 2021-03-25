@@ -65,7 +65,7 @@ pynytimes==0.2.1
 pyrsistent==0.15.7
 python-dateutil==2.8.0
 pytz==2020.1
-PyYAML==5.2
+PyYAML==5.4
 regex==2020.4.4
 requests==2.20.1
 requests-file==1.5.1
